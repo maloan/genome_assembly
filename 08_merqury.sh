@@ -19,11 +19,11 @@ BWD=`ERR3624579_1.fastq.gz`
 mkdir -p $OUTPUT_PATH
 
  # find the best k-mer size to use amd save it to var
-# KMER=`singularity exec \
-#         /software/singularity/containers/Merqury-1.3-1.ubuntu20.sif \
-#         best_k.sh \
-#             135000000 \
-#         | sed -n '3 p'` # get the third line of output, which is the kmer
+ KMER=`singularity exec \
+         /software/singularity/containers/Merqury-1.3-1.ubuntu20.sif \
+         best_k.sh \
+             135000000 \
+| sed -n '3 p'` # get the third line of output, which is the kmer
 
 
 # # build kmers with meryl
@@ -64,10 +64,7 @@ mkdir -p $OUTPUT_PATH/flye_p
 cd $OUTPUT_PATH/flye_p
 
 ln -s $OUTPUT_PATH/meryl/merged_kmers.meryl .
-#ln -s /data/users/akurtz/assembly_annotation_course/assemblies/flye/assembly.fasta .
-#ln -s $WORK_DIR/canu/An1_3.contigs.fasta .
 ln -s $WORK_DIR/flye/pilon.fasta .
-#ln -s $WORK_DIR/canu/pilon.fasta .
 
 singularity exec \
     --bind $PROJECT_PATH,$DATA_DIR \
