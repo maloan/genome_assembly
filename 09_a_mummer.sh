@@ -10,20 +10,12 @@
 #SBATCH --output=/data/users/akurtz/assembly_annotation_course/outputs/output_mumer_%j.o
 #SBATCH --error=/data/users/akurtz/assembly_annotation_course/outputs/error_mummer_%j.e
 
-
 # load module 
 module add UHTS/Analysis/mummer/4.0.0beta1
 
 # set directories
 WORK_DIR=/data/users/akurtz/assembly_annotation_course
 ANO_REF=/data/courses/assembly-annotation-course/references
-
-# mummerplot 
-#mummerplot --prefix flye -R $ANO_REF/*fa -Q $WORK_DIR/assemblies/flye/assembly.fasta --filter -t png --large --layout $WORK_DIR/comparing/flye.delta
-#mummerplot --prefix flye_polished -R $ANO_REF/*fa -Q $WORK_DIR/assemblies/flye/pilon.fasta --filter -t png --large --layout $WORK_DIR/comparing/flye_polished.delta
-
-#mummerplot --prefix canu -R $ANO_REF/*fa -Q $WORK_DIR/assemblies/canu/An1_3.contigs.fasta --filter -t png --large --layout $WORK_DIR/comparing/canu.delta
-#mummerplot --prefix canu_polished -R $ANO_REF/*fa -Q $WORK_DIR/assemblies/canu/pilon.fasta --filter -t png --large --layout $WORK_DIR/comparing/canu_polished.delta
 
 mummerplot \
 --prefix canu_polished_vs_flye_polished \
