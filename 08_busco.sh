@@ -14,7 +14,6 @@
 PRODJDIR=/data/users/akurtz/assembly_annotation_course/quality_control
 WORK_DIR=/data/users/akurtz/assembly_annotation_course/assemblies
 
-
 # load busco and specify the running params
 module load UHTS/Analysis/busco/4.1.4;
 
@@ -25,7 +24,6 @@ if [[ ! -d "augustus_config" ]]; then
 fi
 export AUGUSTUS_CONFIG_PATH=./augustus_config
 
-
 # flye 
 busco -i ${WORK_DIR}/flye/assembly.fasta -l brassicales_odb10 -m genome --out ${PROJDIR}/ -o busco_flye
 busco -i ${WORK_DIR}/flye/pilon.fasta -l brassicales_odb10 -m genome --out ${PROJDIR}/ -o busco_flye_P
@@ -33,5 +31,6 @@ busco -i ${WORK_DIR}/flye/pilon.fasta -l brassicales_odb10 -m genome --out ${PRO
 # canu 
 busco -i ${WORK_DIR}/canu/An1_3.contigs.fasta -l brassicales_odb10 -m genome --out ${PROJDIR}/ -o busco_canu
 busco -i ${WORK_DIR}/canu/pilon.fasta -l brassicales_odb10 -m genome --out ${PROJDIR}/ -o busco_canu_P
+
 # trinity 
 busco -i ${WORK_DIR}/trinity/Trinity.fasta -l brassicales_odb10 -m transcriptome --out ${PROJDIR}/ -o busco_trinity
