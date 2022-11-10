@@ -16,15 +16,11 @@ cd ${WORK_DIR}
 module load UHTS/Analysis/samtools/1.10;
 
 # samtools flye 
-#samtools sort -T -h ${WORK_DIR}/flye/flye.sam -o ${WORK_DIR}/flye/flye_sorted.sam
-
-#samtools view -bS ${WORK_DIR}/flye/flye_sorted.sam > ${WORK_DIR}/flye/flye.bam
-
+samtools sort -T -h ${WORK_DIR}/flye/flye.sam -o ${WORK_DIR}/flye/flye_sorted.sam
+samtools view -bS ${WORK_DIR}/flye/flye_sorted.sam > ${WORK_DIR}/flye/flye.bam
 samtools index ${WORK_DIR}/flye/flye.bam 
 
 # samtools canu 
 samtools sort -T -h ${WORK_DIR}/canu/canu.sam -o ${WORK_DIR}/canu/canu_sorted.sam
-
 samtools view -bS ${WORK_DIR}/canu/canu_sorted.sam > ${WORK_DIR}/canu/canu.bam
-
 samtools index ${WORK_DIR}/canu/canu.bam 
